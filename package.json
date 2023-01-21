@@ -3,6 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "browserslist": [
+    "last 4 version"
+  ],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -17,6 +20,10 @@
     "solid-js": "^1.6.9"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "postcss-import": "^15.1.0",
+    "postcss-mixins": "^9.0.4",
     "postcss-preset-env": "^7.8.3"
   }
 }

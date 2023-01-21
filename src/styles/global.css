@@ -25,49 +25,41 @@ button {
   background: inherit;
   padding: 0;
   cursor: pointer;
+  font-family: "Poppins", sans-serif;
 }
 
 .layout {
   padding: 2rem;
-}
 
-.counterHead {
-  margin-bottom: 10px;
-  font-weight: 500;
-}
+  & .counterHead {
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
 
-.counter {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
+  & .counter {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 
-.counter div {
-  width: 20px;
-  text-align: center;
-}
+    & div {
+      width: 20px;
+      text-align: center;
+    }
 
-.counter button {
-  width: 35px;
-  height: 35px;
-  font-size: 25px;
-  border-radius: 5px;
-  color: white;
-  transition: 300ms;
-}
+    & button {
+      padding: 7px 16px;
+      border-radius: 5px;
+      background-color: #ef4444;
+      color: white;
+      transition: 300ms;
 
-.counter button:hover {
-  transform: scale(1.05);
-}
+      &:hover {
+        transform: scale(1.05);
+      }
 
-.counter button:active {
-  transform: scale(0.95);
-}
-
-.counter button:nth-child(1) {
-  background-color: #ef4444;
-}
-
-.counter button:nth-child(3) {
-  background-color: #3b82f6;
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
 }
