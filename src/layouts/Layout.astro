@@ -20,41 +20,45 @@ import "../styles/global.css";
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-  </head>
-  <body>
-    <Header client:load />
-    <slot />
-    <script type="text/javascript">
-      const toggleButton = document.getElementById("toggleTheme");
-
+    <script is:inline>
       const currentTheme = localStorage.getItem("theme");
       if (currentTheme) {
         if (currentTheme == "dark") {
-          document.body.classList.add("darkTheme");
-          toggleButton.checked = true;
+          document.querySelector("html").classList.add("darkTheme");
         }
       } else {
         const darkMode = window.matchMedia("(prefers-color-scheme: dark)");
         if (darkMode.matches) {
-          document.body.classList.add("darkTheme");
+          document.querySelector("html").classList.add("darkTheme");
           localStorage.setItem("theme", "dark");
-          toggleButton.checked = true;
         } else {
-          document.body.classList.remove("darkTheme");
+          document.querySelector("html").classList.remove("darkTheme");
           localStorage.setItem("theme", "light");
         }
       }
-
-      const switchTheme = (e) => {
-        if (e.target.checked) {
-          document.body.classList.add("darkTheme");
-          localStorage.setItem("theme", "dark");
-        } else {
-          document.body.classList.remove("darkTheme");
-          localStorage.setItem("theme", "light");
-        }
-      };
-      toggleButton.addEventListener("change", switchTheme);
     </script>
+  </head>
+  <body>
+    <Header client:load />
+    <slot />
   </body>
+  <script type="text/javascript">
+    const toggleButton = document.getElementById("toggleTheme");
+    const theme = localStorage.getItem("theme");
+    if (theme == "dark") {
+      toggleButton.checked = true;
+    }
+
+    const switchTheme = (e) => {
+      if (e.target.checked) {
+        document.querySelector("html").classList.add("darkTheme");
+        localStorage.setItem("theme", "dark");
+        toggleButton.checked = true;
+      } else {
+        document.querySelector("html").classList.remove("darkTheme");
+        localStorage.setItem("theme", "light");
+      }
+    };
+    toggleButton.addEventListener("change", switchTheme);
+  </script>
 </html>
