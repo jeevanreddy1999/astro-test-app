@@ -4,10 +4,26 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-bg: #ffffff;
+  --color: #000000;
+  --a-color: #2563eb;
+  --a-color-hover: #dc2626;
+}
+
+.darkTheme {
+  --color-bg: #000000;
+  --color: #ffffff;
+  --a-color: #60a5fa;
+  --a-color-hover: #f87171;
+}
+
 html,
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
+  background: var(--color-bg);
+  color: var(--color);
 }
 
 h1,
@@ -17,6 +33,16 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+a {
+  color: var(--a-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--a-color-hover);
+    text-decoration: underline;
+  }
 }
 
 button {
@@ -36,30 +62,19 @@ button {
     font-weight: 500;
   }
 
-  & .counter {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+  & button {
+    padding: 7px 16px;
+    border-radius: 5px;
+    background-color: #ef4444;
+    color: white;
+    transition: 300ms;
 
-    & div {
-      width: 20px;
-      text-align: center;
+    &:hover {
+      transform: scale(1.05);
     }
 
-    & button {
-      padding: 7px 16px;
-      border-radius: 5px;
-      background-color: #ef4444;
-      color: white;
-      transition: 300ms;
-
-      &:hover {
-        transform: scale(1.05);
-      }
-
-      &:active {
-        transform: scale(0.95);
-      }
+    &:active {
+      transform: scale(0.95);
     }
   }
 }

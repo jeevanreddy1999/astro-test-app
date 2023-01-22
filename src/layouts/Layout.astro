@@ -4,6 +4,7 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+import Header from "../components/Header";
 import "../styles/global.css";
 ---
 
@@ -21,6 +22,39 @@ import "../styles/global.css";
     />
   </head>
   <body>
+    <Header client:load />
     <slot />
+    <script type="text/javascript">
+      const toggleButton = document.getElementById("toggleTheme");
+
+      const currentTheme = localStorage.getItem("theme");
+      if (currentTheme) {
+        if (currentTheme == "dark") {
+          document.body.classList.add("darkTheme");
+          toggleButton.checked = true;
+        }
+      } else {
+        const darkMode = window.matchMedia("(prefers-color-scheme: dark)");
+        if (darkMode.matches) {
+          document.body.classList.add("darkTheme");
+          localStorage.setItem("theme", "dark");
+          toggleButton.checked = true;
+        } else {
+          document.body.classList.remove("darkTheme");
+          localStorage.setItem("theme", "light");
+        }
+      }
+
+      const switchTheme = (e) => {
+        if (e.target.checked) {
+          document.body.classList.add("darkTheme");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.classList.remove("darkTheme");
+          localStorage.setItem("theme", "light");
+        }
+      };
+      toggleButton.addEventListener("change", switchTheme);
+    </script>
   </body>
 </html>
