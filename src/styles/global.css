@@ -45,32 +45,74 @@ a {
   }
 }
 
+input[type="text"] {
+  outline: 0;
+  height: 30px;
+  font-size: 19px;
+}
+
+input[type="checkbox"] {
+  margin: 0;
+}
+
 button {
+  width: fit-content;
+  color: white;
   outline: 0;
   border: 0;
   background: inherit;
   padding: 0;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
+  padding: 7px 16px;
+  border-radius: 5px;
+  background-color: #ef4444;
+  transition: 300ms;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 .layout {
   padding: 2rem;
+}
 
-  & .counterHead {
-    margin-bottom: 10px;
-    font-weight: 500;
+.pokeLayout {
+  margin-top: 1rem;
+  width: 400px;
+
+  input[type="text"] {
+    width: 400px;
   }
 
-  & button {
+  div {
+    margin-top: 13px;
+    display: flex;
+    justify-content: center;
+  }
+
+  a {
+    width: fit-content;
+    color: white;
+    outline: 0;
+    border: 0;
+    background: inherit;
+    padding: 0;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
     padding: 7px 16px;
     border-radius: 5px;
     background-color: #ef4444;
-    color: white;
     transition: 300ms;
 
     &:hover {
       transform: scale(1.05);
+      text-decoration: none;
     }
 
     &:active {

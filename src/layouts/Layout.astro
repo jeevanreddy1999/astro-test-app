@@ -4,7 +4,6 @@ export interface Props {
 }
 
 const { title } = Astro.props;
-import Header from "../components/Header";
 import "../styles/global.css";
 ---
 
@@ -39,12 +38,17 @@ import "../styles/global.css";
     </script>
   </head>
   <body>
-    <Header client:load />
-    <slot />
+    <div class="layout">
+      <input type="checkbox" id="toggleTheme" />
+      <span>toggle theme</span>
+      <br />
+      <a href="/">back</a>
+      <slot />
+    </div>
   </body>
   <script type="text/javascript">
-    const toggleButton = document.getElementById("toggleTheme");
-    const theme = localStorage.getItem("theme");
+    let toggleButton = document.getElementById("toggleTheme");
+    let theme = localStorage.getItem("theme");
     if (theme == "dark") {
       toggleButton.checked = true;
     }

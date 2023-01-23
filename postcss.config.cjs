@@ -1,5 +1,6 @@
 const autoprefixer = require("autoprefixer");
 const postCssPresetEnv = require("postcss-preset-env");
+const postCssNested = require("postcss-nested");
 const postCssImport = require("postcss-import");
 const postCssMixins = require("postcss-mixins");
 
@@ -8,6 +9,7 @@ module.exports = {
     autoprefixer,
     postCssImport,
     postCssMixins,
-    postCssPresetEnv({ stage: 0, features: { "nesting-rules": true } }),
+    postCssNested,
+    postCssPresetEnv({ stage: 0 }),
   ],
 };
