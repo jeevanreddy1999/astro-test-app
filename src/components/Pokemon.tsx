@@ -1,11 +1,7 @@
-import { createSignal, createEffect } from "solid-js";
+import { createSignal } from "solid-js";
 
 const Pokemon = () => {
   const [name, setName] = createSignal("");
-
-  createEffect(() => {
-    console.log("name", name());
-  });
 
   return (
     <div class="pokeLayout">
