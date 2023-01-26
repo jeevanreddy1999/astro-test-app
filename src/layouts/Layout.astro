@@ -22,18 +22,12 @@ import "../styles/global.css";
     <script is:inline>
       const currentTheme = localStorage.getItem("theme");
       if (currentTheme) {
-        if (currentTheme == "dark") {
-          document.querySelector("html").classList.add("darkTheme");
-        }
+        document.documentElement.setAttribute("data-theme", currentTheme);
       } else {
         const darkMode = window.matchMedia("(prefers-color-scheme: dark)");
-        if (darkMode.matches) {
-          document.querySelector("html").classList.add("darkTheme");
-          localStorage.setItem("theme", "dark");
-        } else {
-          document.querySelector("html").classList.remove("darkTheme");
-          localStorage.setItem("theme", "light");
-        }
+        const theme = darkMode.matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
       }
     </script>
   </head>
@@ -54,14 +48,9 @@ import "../styles/global.css";
     }
 
     const switchTheme = (e) => {
-      if (e.target.checked) {
-        document.querySelector("html").classList.add("darkTheme");
-        localStorage.setItem("theme", "dark");
-        toggleButton.checked = true;
-      } else {
-        document.querySelector("html").classList.remove("darkTheme");
-        localStorage.setItem("theme", "light");
-      }
+      const theme = e.target.checked ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
     };
     toggleButton.addEventListener("change", switchTheme);
   </script>

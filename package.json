@@ -14,9 +14,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^1.2.3",
-    "@astrojs/vercel": "^2.4.0",
-    "astro": "^1.9.0",
+    "@astrojs/solid-js": "^2.0.0",
+    "@astrojs/vercel": "^3.0.0",
+    "astro": "^2.0.1",
     "pokenode-ts": "^1.17.0",
     "solid-js": "^1.6.9"
   },

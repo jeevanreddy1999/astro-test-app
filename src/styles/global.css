@@ -4,14 +4,14 @@
   box-sizing: border-box;
 }
 
-:root {
+:root[data-theme="light"] {
   --color-bg: #ffffff;
   --color: #000000;
   --a-color: #2563eb;
   --a-color-hover: #dc2626;
 }
 
-.darkTheme {
+:root[data-theme="dark"] {
   --color-bg: #000000;
   --color: #ffffff;
   --a-color: #60a5fa;
