@@ -6,7 +6,7 @@ const { name } = Astro.params;
 const pokemon = await getPokemonByName(name);
 ---
 
-<Layout title="Astro">
+<Layout title={`${pokemon != "error" ? pokemon.name + " - pokemon" : "Error"}`}>
   {
     pokemon != "error" ? (
       <div>
